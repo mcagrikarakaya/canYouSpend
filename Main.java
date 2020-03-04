@@ -5,17 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
 
-        int salary = 2500;
-
-        int bills = 100;
-        int rent = 1000;
-        int commuting = 200;
-        int food = 200;
-        int clothing = 100;
-        boolean inDebt;
-
-
-
+        
         footballMatch(2000, 450, 700, 150, 250, 150, false);
         footballMatch(10000, 350, 1100, 350, 450, 350, false);
         footballMatch(3000, 150, 700, 150, 250, 150, false);
