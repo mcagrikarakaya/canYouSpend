@@ -2,33 +2,32 @@ package com.company;
 
 public class Main {
 
+
+
     public static void main(String[] args) {
 
 
         
-        footballMatch(2000, 450, 700, 150, 250, 150, false);
-        footballMatch(10000, 350, 1100, 350, 450, 350, false);
-        footballMatch(3000, 150, 700, 150, 250, 150, false);
-        footballMatch(1000000, 150, 700, 150, 250, 150, true);
-        footballMatch(1000, 250, 500, 150, 250, 150, false);
+        run(2000, 450, 700, 150, 250, 150, false,true);
+        run(10000, 350, 1100, 350, 450, 350, false,true);
+        run(3000, 150, 700, 150, 250, 150, false,true);
+        run(1000000, 150, 700, 150, 250, 150, true,true);
+        run(1000, 250, 500, 150, 250, 150, false,true);
 
         System.out.println(" ---- ");
         System.out.println(" ---- ");
         System.out.println(" ---- ");
 
-        vacation(2000, 450, 700, 150, 250, 150, false);
-        vacation(10000, 350, 1100, 350, 450, 350, false);
-        vacation(3000, 150, 700, 150, 250, 150, false);
-        vacation(1000000, 150, 700, 150, 250, 150, true);
-        vacation(1000, 250, 500, 150, 250, 150, false);
+        run(2000, 450, 700, 150, 250, 150, false,false);
+        run(10000, 350, 1100, 350, 450, 350, false,false);
+        run(3000, 150, 700, 150, 250, 150, false,false);
+        run(1000000, 150, 700, 150, 250, 150, true,false);
+        run(1000, 250, 500, 150, 250, 150, false,false);
 
 
     }
-    public static void footballMatch (int salary, int bills, int rent,
-                                      int commuting, int food, int clothing,
+    public static void footballMatch (double spareMoney,
                                       boolean inDebt) {
-        double savings = salary*0.1;
-        double spareMoney = (salary - savings - bills - rent - commuting - food - clothing);
 
         if ((inDebt) || (spareMoney < 0)) {
             System.out.println("You are in debt and pay it off first!");
@@ -43,12 +42,9 @@ public class Main {
 
     }
 
-    public static void vacation (int salary, int bills, int rent,
-                                 int commuting, int food, int clothing,
+    public static void vacation (double spareMoney,
                                  boolean inDebt) {
 
-        double savings = salary*0.1;
-        double spareMoney = (salary - savings - bills - rent - commuting - food - clothing);
 
         if (inDebt) {
             System.out.println("You are in debt and pay it off first!");
@@ -60,6 +56,20 @@ public class Main {
             System.out.println("you can go anywhere you want");
         }
 
+
+    }
+
+    public static void run (int salary, int bills, int rent,
+                            int commuting, int food, int clothing,
+                            boolean inDebt, boolean isFootballMatch){
+        double savings = salary*0.1;
+        double spareMoney = (salary - savings - bills - rent - commuting - food - clothing);
+
+        if (isFootballMatch){
+            footballMatch(spareMoney,inDebt);
+        }else{
+            vacation(spareMoney,inDebt);
+        }
 
     }
 
